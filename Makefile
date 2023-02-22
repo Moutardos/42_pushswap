@@ -6,14 +6,12 @@ NAME = $(BDIR)/fdf
 LIBFT = $(IDIR)/libft/libft.a
 
 RM = rm -f
-# // TODO -Werror
 CFLAGS = -Wall -Wextra -I$(IDIR) 
 LFLAGS = -L$(IDIR)/libft -lft
 _OBJS =  main.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 all: lib | $(NAME)
-
 
 lib : $(LIBFT)
 

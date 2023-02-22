@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:21 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/17 13:07:03 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:22:27 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,14 @@ typedef struct s_env
 	int		size_op;
 }	t_env;
 
+/** OPERATIONS */
 int			do_operation(t_env *env, t_operation op);
 t_operation	str_to_operation(char *str);
 t_stack		*swap_stack(t_stack **stack);
-void 		push_stack(t_stack **stack_a, t_stack **stack_b);
+t_stack		*push_stack(t_stack **stack_a, t_stack **stack_b);
 void		rotate_stack(t_stack **stack);
+void		reverse_stack(t_stack **stack, int size);
+/** PUSH SWAP **/
+t_env *init_pushswap(void);
 
 #endif

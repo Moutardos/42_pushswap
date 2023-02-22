@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:30:35 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/17 13:19:32 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:56:59 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,26 @@ int	do_operation(t_env *env, t_operation op)
 	if (op == PB)
 		return (push_stack(&env->stack_b, &env->stack_a), 0);
 	if (op == RA)
-		return (rotate_stack(&env->stack_a), 0);
+		return (rotate_stack(&env->stack_a, env->size_a), 0);
 	if (op == RB)
-		return (rotate_stack(&env->stack_b), 0);
+		return (rotate_stack(&env->stack_b, env->size_b), 0);
 	if (op == RR)
-		return (rotate_stack(&env->stack_a), rotate_stack(&env->stack_b), 0);
+		return (rotate_stack(&env->stack_a, env->size_a), rotate_stack(&env->stack_b, env->size_b), 0);
 	if (op == RRA)
-		return (rotate_stack(&env->stack_a), 0);
-	if (op == RRB)
-		return (rotate_stack(&env->stack_b), 0);
+	{
+		do_operation(env, RA);
+		return (reverse_stack(&env->stack_a, env->size_a));
+	}
+	if (op == RRA)
+	{
+		do_operation(env, RB);
+		return (reverse_stack(&env->stack_b, env->size_b), 0);
+	}	
 	if (op == RRR)
-		return (rotate_stack(&env->stack_a), rotate_stack(&env->stack_b), 0);
+	{
+		do_operation(env, RR);
+		return (reverse_stack(&env->stack_a), reverse_stack(&env->stack_b), 0);
+	}
 	return (op);
 }
 
@@ -75,7 +84,7 @@ t_stack	*swap_stack(t_stack **stack)
 		return (NULL);
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tmp->next = (*stack)->next;x
+	tmp->next = (*stack)->next;
 	(*stack)->next = tmp;
 }
 
@@ -94,4 +103,23 @@ t_stack	*push_stack(t_stack **stack_a, t_stack **stack_b)
 	(*stack_a)->prev->next = tmp;
 	(*stack_a)->prev = tmp;
 	*stack_a = tmp;
+}
+
+void	reverse_stack(t_stack **stack, int size)
+{
+	t_stack	*first;
+	t_stack *tmp;
+	
+	if (!stack || !*stack || size < 2)
+		return ;
+	first = *stack;
+	tmp = first->next;
+	while ((*stack)->next != first)
+		(*stack) = (*stack)->next;
+	first->next->prev = (*stack);
+	(*stack)->prev->next = first;
+	first->next = (*stack);
+	first->prev = (*stack)->prev;
+	(*stack)->prev = first;
+	(*stack)->next = tmp;
 }
