@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:21 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/22 12:22:27 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:24:25 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,22 @@ typedef enum e_operation
 
 typedef struct s_env
 {
-	t_stack	*stack_a;
-	int		size_a;
-	t_stack *stack_b;
-	int		size_b;
-	t_stack	*stack_op;
+	t_stack	*st_a;
+	int		s_a;
+	t_stack *st_b;
+	int		s_b;
+	t_stack	*st_op;
 	int		size_op;
 }	t_env;
 
 /** OPERATIONS */
 int			do_operation(t_env *env, t_operation op);
-t_operation	str_to_operation(char *str);
-t_stack		*swap_stack(t_stack **stack);
-t_stack		*push_stack(t_stack **stack_a, t_stack **stack_b);
-void		rotate_stack(t_stack **stack);
+char 		*op_to_str(t_operation op);
+void		swap_stack(t_stack **stack);
+void		push_stack(t_stack **st_a, t_stack **st_b);
+void		rotate_stack(t_stack **stack, int size);
 void		reverse_stack(t_stack **stack, int size);
 /** PUSH SWAP **/
-t_env *init_pushswap(void);
-
+t_env *init_env(int *array, int size);
+t_env	*sort_one(t_env *env, int offset);
 #endif

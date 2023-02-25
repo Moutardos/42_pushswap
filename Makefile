@@ -2,13 +2,12 @@ CC = cc
 ODIR = obj
 BDIR = bin
 IDIR = include
-NAME = $(BDIR)/fdf
+NAME = $(BDIR)/push_swap
 LIBFT = $(IDIR)/libft/libft.a
-
 RM = rm -f
 CFLAGS = -Wall -Wextra -I$(IDIR) 
 LFLAGS = -L$(IDIR)/libft -lft
-_OBJS =  main.o
+_OBJS =  main.o pushswap.o stack.o operation.o utils.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 all: lib | $(NAME)

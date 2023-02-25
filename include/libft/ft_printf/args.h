@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:07:21 by lcozdenm          #+#    #+#             */
-/*   Updated: 2022/12/03 01:23:48 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:16:34 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef enum e_ftype
 }	t_ftype;
 
 /* Regroup all the information known about the argument*/
-typedef struct s_arg
+typedef struct st_arg
 {
 	t_atype		ctype;
 	t_flags		flags;
