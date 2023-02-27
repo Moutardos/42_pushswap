@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:44:08 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 16:17:38 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:43:42 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_stack	*new_stack(int *data, int size)
 	stack = NULL;
 	while (i < size)
 	{
-		add_stack(&stack, data[i]);
+		add_stack(&stack, data[size - i - 1]);
 		i++;
 	}
 	return (stack);
@@ -48,7 +48,7 @@ t_stack	*add_stack(t_stack **stack, int data)
 	else
 	{
 		new->prev = new;
-		new->next = new; 
+		new->next = new;
 	}
 	*stack = new;
 	return (new);
@@ -66,10 +66,10 @@ void	del_stack(t_stack **stack)
 	tmp = NULL;
 }
 
-
-void 	free_stack(t_stack **stack, int size)
+void	free_stack(t_stack **stack, int size)
 {
 	int	i;
+
 	i = 0;
 	while (i < size)
 	{
@@ -92,17 +92,4 @@ void	swap_stack(t_stack **stack)
 	tmp->prev = (*stack);
 	(*stack)->next->prev = tmp;
 	(*stack)->next = tmp;
-}
-
-void	print_stack(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (tmp->next != stack)
-	{
-		ft_printf("%d ", tmp->data);
-		tmp = tmp->next;
-	}
-	ft_printf("%d\n", tmp->data);
 }

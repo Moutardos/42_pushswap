@@ -6,16 +6,16 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:36:36 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 15:11:44 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:48:12 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "operation.h"
 
-t_env *init_env(int *array, int size)
+t_env	*init_env(int *array, int size)
 {
-	t_env *env;
+	t_env	*env;
 
 	env = malloc(sizeof(t_env));
 	if (!env)
@@ -37,8 +37,8 @@ void	free_env(t_env *env)
 	free_stack(&env->st_b, env->s_b);
 	free_stack(&env->st_op, env->size_op);
 	free(env);
-
 }
+
 t_env	*sort_one(t_env *env, int offset)
 {
 	int		i;
@@ -55,4 +55,3 @@ t_env	*sort_one(t_env *env, int offset)
 		i++;
 	}
 }
-
