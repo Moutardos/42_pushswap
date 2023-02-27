@@ -6,13 +6,13 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:44:46 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/01/25 16:33:57 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:46:42 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	*ft_free_split(char **res, size_t n)
+static void	*ft_fsplit(char **res, size_t n)
 {
 	size_t	i;
 
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 		ft_next_word(&s, c);
 		word = ft_ext_word(&s, c);
 		if (word == NULL)
-			return (ft_free_split(res, i));
+			return (ft_fsplit(res, i));
 		res[i] = word;
 		i++;
 	}

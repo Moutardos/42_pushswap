@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:35:07 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/09 09:00:50 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 19:03:11 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,4 +205,7 @@ int		ft_printf(const char *s, ...);
 char	*get_next_line(int fd);
 
 int		count_lines(int fd);
+int		ft_bitsize(int n);
+int		*ft_strtoi(const char *str, int *size);
+void	ft_free_split(char **s);
 #endif
