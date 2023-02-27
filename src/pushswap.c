@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:36:36 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 17:48:12 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:09:07 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ void	free_env(t_env *env)
 t_env	*sort_one(t_env *env, int offset)
 {
 	int		i;
-
+	int		size;
+	
 	if (!env || offset < 0)
 		return (NULL);
 	i = 0;
-	while (i < env->s_a)
+	size = env->s_a;
+	while (i < size)
 	{
 		if (env->st_a->data >> offset & 1)
 			do_operation(env, RA);
@@ -54,4 +56,12 @@ t_env	*sort_one(t_env *env, int offset)
 			do_operation(env, PB);
 		i++;
 	}
+	i = 0;
+	size = env->s_b;
+	while (i < size)
+	{
+		do_operation(env, PA);
+		i++;
+	}
+	return (env);
 }

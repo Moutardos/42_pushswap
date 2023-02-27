@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:44:08 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 17:43:42 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:15:28 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,13 @@ void	del_stack(t_stack **stack)
 	(*stack)->next->prev = (*stack)->prev;
 	(*stack)->prev->next = (*stack)->next;
 	*stack = (*stack)->next;
-	free(tmp);
-	tmp = NULL;
+	if (*stack == tmp)
+	{
+		free(tmp);
+		*stack = NULL;
+	}
+	else
+		free(tmp);
 }
 
 void	free_stack(t_stack **stack, int size)

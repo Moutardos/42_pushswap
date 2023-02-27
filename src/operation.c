@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:30:35 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 17:47:14 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 19:22:15 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	do_operation2(t_env *env, t_operation op)
 {
+	int	i;
+	
 	if (op == RRA)
 		return (rotate_stack(&env->st_a, TRUE), 0);
 	if (op == RRB)

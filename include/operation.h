@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:21 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 17:50:14 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 19:36:17 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ void		swap_stack(t_stack **stack);
 void		push_stack(t_stack **st_a, t_stack **st_b);
 void		rotate_stack(t_stack **stack, int size);
 void		reverse_stack(t_stack **stack, int size);
+int			get_bmax(int *array, int size);
 /** PUSH SWAP **/
 t_env		*init_env(int *array, int size);
 void		free_env(t_env *env);
 t_env		*sort_one(t_env *env, int offset);
+int		*pre_sort(int *array, int size);
 #endif
