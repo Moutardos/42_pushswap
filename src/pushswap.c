@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:36:36 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/25 17:13:02 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:11:44 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ t_env *init_env(int *array, int size)
 	return (env);
 }
 
+void	free_env(t_env *env)
+{
+	free_stack(&env->st_a, env->s_a);
+	free_stack(&env->st_b, env->s_b);
+	free_stack(&env->st_op, env->size_op);
+	free(env);
+
+}
 t_env	*sort_one(t_env *env, int offset)
 {
 	int		i;

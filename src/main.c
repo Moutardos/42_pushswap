@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:43:09 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/25 18:06:29 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:20:03 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ int main(int argc, char **argv)
 	do_operation(env, PB);
 	print_stack(env->st_a);
 	print_stack(env->st_b);
-	do_operation(env, PA);
+	do_operation(env, RRA);
 	print_stack(env->st_a);
+	do_operation(env, SA);
+	do_operation(env, SB);
+	print_stack(env->st_a);
+	free_env(env);
 	return (0);
 }

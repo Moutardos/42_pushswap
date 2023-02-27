@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:19:19 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/25 01:15:59 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:12:48 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ typedef struct s_stack
 t_stack	*new_stack(int *data, int size);
 t_stack	*add_stack(t_stack **stack, int data);
 void 	del_stack(t_stack **stack);
-void 	free_stack(t_stack **stack);
+void 	free_stack(t_stack **stack, int size);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:30:35 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/25 17:57:29 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:06:19 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,16 @@
 static int do_operation2(t_env *env, t_operation op)
 {
 	if (op == RRA)
-	{
-		do_operation(env, RA);
-		reverse_stack(&env->st_a, env->s_a);
-		return (0);
-	}
+		return (rotate_stack(&env->st_a, TRUE), 0);
 	if (op == RRB)
-	{
-		do_operation(env, RB);
-		reverse_stack(&env->st_b, env->s_b);
-		return (0);
-	}
+		return (rotate_stack(&env->st_b, TRUE), 0);
 	if (op == RRR)
 	{
-		do_operation(env, RR);
-		reverse_stack(&env->st_a, env->s_a);
-		reverse_stack(&env->st_b, env->s_b);
+		do_operation(env, RRA);
+		do_operation(env, RRB);
 		return (0);
 	}
-	return (-2);
+	return (op);
 }
 
 int	do_operation(t_env *env, t_operation op)
@@ -52,9 +43,9 @@ int	do_operation(t_env *env, t_operation op)
 	if (op == PB)
 		return (env->s_b++, env->s_a--, push_stack(&env->st_b, &env->st_a), 0);
 	if (op == RA)
-		return (rotate_stack(&env->st_a, env->s_a), 0);
+		return (rotate_stack(&env->st_a, FALSE), 0);
 	if (op == RB)
-		return (rotate_stack(&env->st_b, env->s_b), 0);
+		return (rotate_stack(&env->st_b, FALSE), 0);
 	if (op == RR)
 		return (do_operation(env, RA), do_operation(env, RB), 0);
 	else
@@ -71,26 +62,42 @@ void	push_stack(t_stack **stack_a, t_stack **stack_b)
 	del_stack(stack_b);
 }
 
-void	reverse_stack(t_stack **stack, int size)
+void	rotate_stack(t_stack **stack, t_bool reverse)
 {
+	t_stack	*tmp;
 	t_stack	*first;
-	t_stack *tmp;
+	int		first_data;
 	
-	if (!stack || !*stack || size < 2)
+	if (!stack || !*stack)
 		return ;
 	first = *stack;
-	tmp = first->next;
-	while ((*stack)->next != first)
-		(*stack) = (*stack)->next;
-	first->next->prev = (*stack);
-	(*stack)->prev->next = first;
-	first->next = (*stack);
-	first->prev = (*stack)->prev;
-	(*stack)->prev = first;
-	(*stack)->next = tmp;
+	first_data = first->data;
+	if (!reverse)
+	{
+		tmp = *stack;
+		while (tmp->next != first)
+		{
+			tmp->data = tmp->next->data;
+			tmp = tmp->next;
+		}
+	}
+	else
+	{
+		tmp = *stack;
+		while (tmp->prev != first)
+		{
+			tmp->data = tmp->prev->data;
+			tmp = tmp->prev;
+		}
+	}
+	tmp->data = first_data;
 }
 
-void	rotate_stack(t_stack **stack, int size)
+void	reverse_stack(t_stack **stack_a, int size)
 {
 	
 }
+// a  ra rra
+// 1  2   3
+// 2  3   1
+// 3  1   2
