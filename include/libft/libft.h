@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:35:07 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 19:03:11 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:09:56 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@
 
 # define STDOUT 1
 # define STDIN 0
+# define TRUE 1
+# define FALSE 0
 
+typedef int	t_bool;
 typedef struct s_list
 {
 	void			*content;

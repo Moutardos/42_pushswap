@@ -6,13 +6,13 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:43:09 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 19:40:43 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:10:39 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "operation.h"
-
+#include "parsing.h"
 int main(int argc, char **argv)
 {
 	// TODO: code
@@ -23,17 +23,14 @@ int main(int argc, char **argv)
 	int		*array;
 	int		len;
 	
-	original = ft_strtoi(argv[1], &len);
+	//original = ft_strtoi(argv[1], &len);
+	original = transform_array(argv + 1, argc - 1, &len);
 	array = pre_sort(original, len);
-	i = 0;
-	while (i < len)
-	{
-		ft_printf("%d ", array[i]);
-		i++;
-	}
+	if (!array)
+		return (0);
 	env = init_env(array, len);
 	if (!env)
-		return (0);
+		return (free(array), 0);
 	i = 0;
 	bitsize = get_bmax(array, len);
 	while (i < bitsize)
@@ -41,6 +38,7 @@ int main(int argc, char **argv)
 		sort_one(env, i);
 		i++;
 	}
+	free(array);
 	print_stack(env->st_op, TRUE);
 	free_env(env);
 	return (0);

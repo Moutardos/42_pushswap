@@ -6,67 +6,12 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 16:53:38 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 19:41:36 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:28:16 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operation.h"
 
-int	*bsort(int *array, int size)
-{
-	int	i;
-	int	j;
-	int	tmp;
-
-	if (!array || size < 2)
-		return (array);
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (array[i] > array[j])
-			{
-				tmp = array[i];
-				array[i] = array[j];
-				array[j] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (array);
-}
-
-int	*pre_sort(int *array, int size)
-{
-	int *sorted;
-	int *new;
-	int i;
-	int j;
-	
-	sorted = malloc(size * sizeof(int));
-	sorted = ft_memcpy(sorted, array, size * sizeof(int));
-	sorted = bsort(sorted, size);
-	new = malloc(size * sizeof(int));
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (array[j] == sorted[i])
-			{
-				new[j] = i;
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (new);
-}
 char	*op_to_str(t_operation op)
 {
 	if (op == SA)

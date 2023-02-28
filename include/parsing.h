@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoi.c                                        :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:43:43 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 13:59:09 by lcozdenm         ###   ########.fr       */
+/*   Created: 2023/02/28 12:25:03 by lcozdenm          #+#    #+#             */
+/*   Updated: 2023/02/28 13:33:13 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PARSING_H
+# define PARSING_H
 
-int	*ft_strtoi(const char *str, int *size)
-{
-	char			**to_atoi;
-	int				*res;
-	unsigned int	len;
-	unsigned int	i;
+# include "libft/libft.h"
 
-	to_atoi = ft_split(str, ' ');
-	if (!to_atoi)
-		return (NULL);
-	len = 0;
-	i = 0;
-	while (to_atoi[len])
-		len++;
-	res = malloc(sizeof(int) * len);
-	while (res && i < len)
-	{
-		res[i] = ft_atoi(to_atoi[i]);
-		i++;
-	}
-	*size = len;
-	return (ft_free_split(to_atoi), res);
-}
+int	*bsort(int *array, int size);
+int	*pre_sort(int *array, int size);
+int	*transform_array(char **av, int ac, int *len_total);
+int	**strings_to_arrays(char **av, int ac, int **len, int *len_total);
+#endif

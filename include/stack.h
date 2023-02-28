@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:19:19 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/27 17:49:07 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:09:39 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ t_stack	*new_stack(int *data, int size);
 t_stack	*add_stack(t_stack **stack, int data);
 void	del_stack(t_stack **stack);
 void	free_stack(t_stack **stack, int size);
-
+void	print_stack(t_stack *stack, t_bool reverse);
 #endif

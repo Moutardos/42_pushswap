@@ -7,7 +7,7 @@ LIBFT = $(IDIR)/libft/libft.a
 RM = rm -f
 CFLAGS = -Wall -Wextra -I$(IDIR) 
 LFLAGS = -L$(IDIR)/libft -lft
-_OBJS =  main.o pushswap.o stack.o operation.o utils.o
+_OBJS =  main.o pushswap.o stack.o operation.o utils.o parsing.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 all: lib | $(NAME)
