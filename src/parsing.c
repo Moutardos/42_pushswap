@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:24:49 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 14:05:16 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:21:39 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	*transform_array(char **av, int ac, int *len_total)
 	int	i;
 	int	*res;
 	
+	*len_total = 0;
 	len = NULL;
 	array = strings_to_arrays(av, ac, &len, len_total);
 	if (!array)
@@ -88,7 +89,7 @@ int	*transform_array(char **av, int ac, int *len_total)
 	while (i < ac)
 	{
 		ft_memcpy(res + size, array[i], len[i] * sizeof(int));
-		size += len[i] * sizeof(int);
+		size += len[i];
 		if (array[i])
 			free(array[i]);
 		array[i] = NULL;

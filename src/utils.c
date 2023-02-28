@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 16:53:38 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 12:28:16 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:50:05 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	print_stack(t_stack *stack, t_bool is_op)
 		while (tmp->next != stack)
 		{
 				ft_printf("%d ", tmp->data);
+				tmp = tmp->next;
 		}
 		ft_printf("%d\n", tmp->data);
 	}

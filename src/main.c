@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:43:09 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 14:10:39 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:18:22 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 	//original = ft_strtoi(argv[1], &len);
 	original = transform_array(argv + 1, argc - 1, &len);
 	array = pre_sort(original, len);
+	i = 0;
 	if (!array)
 		return (0);
 	env = init_env(array, len);
