@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:43:43 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 13:59:09 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:39:03 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 int	*ft_strtoi(const char *str, int *size)
 {
-	char			**to_atoi;
+	char			**tatoi;
 	int				*res;
 	unsigned int	len;
 	unsigned int	i;
 
-	to_atoi = ft_split(str, ' ');
-	if (!to_atoi)
+	tatoi = ft_split(str, ' ');
+	if (!tatoi)
 		return (NULL);
-	len = 0;
-	i = 0;
-	while (to_atoi[len])
-		len++;
-	res = malloc(sizeof(int) * len);
-	while (res && i < len)
+	len = -1;
+	while (tatoi[++len])
 	{
-		res[i] = ft_atoi(to_atoi[i]);
-		i++;
+		i = -1;
+		while (tatoi[len][++i])
+			if (!ft_isdigit(tatoi[len][i]) || (i == 0 && tatoi[len][i] == '-'))
+				return (ft_free_split(tatoi), NULL);
 	}
+	res = malloc(sizeof(int) * len);
+	i = -1;
+	while (res && ++i < len)
+		res[i] = ft_atoi(tatoi[i]);
 	*size = len;
-	return (ft_free_split(to_atoi), res);
+	return (ft_free_split(tatoi), res);
 }
