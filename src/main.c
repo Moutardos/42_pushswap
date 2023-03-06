@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:43:09 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 15:41:01 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/06 20:31:04 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	if (!verification(original, len))
 		return (free(original), ft_printf("Error\n"), 0);
 	array = pre_sort(original, len);
+	free(original);
 	i = 0;
 	if (!array)
 		return (0);

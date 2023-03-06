@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:24:49 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 12:50:03 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/06 20:32:28 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	*pre_sort(int *array, int size)
 			}
 		}
 	}
-	return (new);
+	return (free(sorted), new);
 }
 
 int	*transform_array(char **av, int ac, int *len_total)
@@ -103,7 +103,7 @@ int	**strings_to_arrays(char **av, int ac, int **len, int *len_total)
 	int	i;
 	int	j;
 
-	array = malloc(sizeof(int *) * ac);
+	array = malloc(sizeof(int *) * (ac));
 	if (!array)
 		return (NULL);
 	*len = malloc(sizeof(int) * ac);
