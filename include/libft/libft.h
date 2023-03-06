@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:35:07 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 12:09:56 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:59:53 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,12 @@ char	*get_next_line(int fd);
 
 int		count_lines(int fd);
 int		ft_bitsize(int n);
+
+/* Turn a string of number seperated by spaces into an array of int.
+   change the int in len into the size of the new array.
+   return null if met with an invalid number */
 int		*ft_strtoi(const char *str, int *size);
-void	ft_free_split(char **s);
+
+/* Free a null terminated array of array */
+void	ft_free_split(void *s);
 #endif

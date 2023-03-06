@@ -6,15 +6,15 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:42:50 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/01 10:39:16 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:59:06 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_split(char **s)
+void	ft_free_split(void *s)
 {
-	char	**curr;
+	void	**curr;
 
 	curr = s;
 	while (*curr)

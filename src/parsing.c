@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:24:49 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 15:21:39 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:50:03 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	*bsort(int *array, int size)
 
 int	*pre_sort(int *array, int size)
 {
-	int *sorted;
-	int *new;
-	int pos[2];
-	
+	int	*sorted;
+	int	*new;
+	int	pos[2];
+
 	sorted = malloc(size * sizeof(int));
 	if (!sorted)
 		return (NULL);
@@ -70,12 +70,12 @@ int	*pre_sort(int *array, int size)
 
 int	*transform_array(char **av, int ac, int *len_total)
 {
-	int **array;
-	int *len;
+	int	**array;
+	int	*len;
 	int	size;
 	int	i;
 	int	*res;
-	
+
 	*len_total = 0;
 	len = NULL;
 	array = strings_to_arrays(av, ac, &len, len_total);
@@ -90,14 +90,11 @@ int	*transform_array(char **av, int ac, int *len_total)
 	{
 		ft_memcpy(res + size, array[i], len[i] * sizeof(int));
 		size += len[i];
-		if (array[i])
-			free(array[i]);
+		free(array[i]);
 		array[i] = NULL;
 		i++;
 	}
-	free(array);
-	free(len);
-	return (res);
+	return (free(array), free(len), res);
 }
 
 int	**strings_to_arrays(char **av, int ac, int **len, int *len_total)
@@ -105,8 +102,8 @@ int	**strings_to_arrays(char **av, int ac, int **len, int *len_total)
 	int	**array;
 	int	i;
 	int	j;
-	
-	array = malloc(sizeof(int *) * ac );
+
+	array = malloc(sizeof(int *) * ac);
 	if (!array)
 		return (NULL);
 	*len = malloc(sizeof(int) * ac);
@@ -126,4 +123,26 @@ int	**strings_to_arrays(char **av, int ac, int **len, int *len_total)
 		*len_total += (*len)[i];
 	}
 	return (array);
+}
+
+int	verification(int *array, int size)
+{
+	int	i;
+	int	j;
+
+	if (is_sorted(array, size))
+		return (0);
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (array[i] == array[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

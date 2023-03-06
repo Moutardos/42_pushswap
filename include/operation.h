@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:21 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 12:54:06 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:53:02 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,17 @@ typedef struct s_env
 }	t_env;
 
 /** OPERATIONS */
-int			do_operation(t_env *env, t_operation op);
-char		*op_to_str(t_operation op);
-void		swap_stack(t_stack **stack);
-void		push_stack(t_stack **st_a, t_stack **st_b);
-void		rotate_stack(t_stack **stack, int size);
-void		reverse_stack(t_stack **stack, int size);
-int			get_bmax(int *array, int size);
+int		do_operation(t_env *env, t_operation op);
+char	*op_to_str(t_operation op);
+void	swap_stack(t_stack **stack);
+void	push_stack(t_stack **st_a, t_stack **st_b);
+void	rotate_stack(t_stack **stack, int size);
+void	reverse_stack(t_stack **stack, int size);
+t_env	*lil_sort(t_env *env);
+t_env	*five_sort(t_env *env);
 /** PUSH SWAP **/
-t_env		*init_env(int *array, int size);
-void		free_env(t_env *env);
-t_env		*sort_one(t_env *env, int offset);
+t_env	*init_env(int *array, int size);
+void	free_env(t_env *env);
+t_env	*radix(t_env *env, int offset);
+t_env	*loic_sort(t_env *env, int bitsize);
 #endif

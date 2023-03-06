@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:43:43 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/01 10:39:03 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:54:10 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	*ft_strtoi(const char *str, int *size)
 	{
 		i = -1;
 		while (tatoi[len][++i])
-			if (!ft_isdigit(tatoi[len][i]) || (i == 0 && tatoi[len][i] == '-'))
+			if (!ft_isdigit(tatoi[len][i]) && (i != 0 && tatoi[len][i] == '-'))
 				return (ft_free_split(tatoi), NULL);
 	}
 	res = malloc(sizeof(int) * len);

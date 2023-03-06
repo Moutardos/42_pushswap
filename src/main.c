@@ -6,25 +6,27 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:43:09 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/02/28 15:18:22 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:41:01 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "operation.h"
 #include "parsing.h"
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	// TODO: code
 	t_env	*env;
-	int		bitsize;
 	int		i;
 	int		*original;
 	int		*array;
 	int		len;
-	
-	//original = ft_strtoi(argv[1], &len);
+
 	original = transform_array(argv + 1, argc - 1, &len);
+	if (!original)
+		return (ft_printf("Error\n"), 0);
+	if (!verification(original, len))
+		return (free(original), ft_printf("Error\n"), 0);
 	array = pre_sort(original, len);
 	i = 0;
 	if (!array)
@@ -32,13 +34,7 @@ int main(int argc, char **argv)
 	env = init_env(array, len);
 	if (!env)
 		return (free(array), 0);
-	i = 0;
-	bitsize = get_bmax(array, len);
-	while (i < bitsize)
-	{
-		sort_one(env, i);
-		i++;
-	}
+	loic_sort(env, get_bmax(array, len));
 	free(array);
 	print_stack(env->st_op, TRUE);
 	free_env(env);
