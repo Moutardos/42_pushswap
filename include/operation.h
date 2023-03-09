@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Loic Cozdenmat <Loic Cozdenmat@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:21 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 20:46:31 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:38:07 by Loic Cozden      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_env	*radix(t_env *env, int offset);
    either a lil_sort if the size is equal to 3,
    or a five_sort if the size is equal to 5,
    or a radix sort if the size is greater than 5 */
-t_env	*loic_sort(t_env *env, int bitsize);\
+t_env	*loic_sort(t_env *env, int bitsize);
 
 /* Sort the stack if the size is equal to 3 */
 t_env	*lil_sort(t_env *env);
@@ -91,7 +91,8 @@ t_env	*lil_sort(t_env *env);
 t_env	*five_sort(t_env *env);
 
 /** UTILITIES **/
-/* Tell you if the array of length size is sorted or not */
-t_bool	is_sorted(int *array, int size);
-
+/* Return the number of bits that is needed 
+   for the biggest number of the array
+*/
+int		get_bmax(int *array, int size);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Loic Cozdenmat <Loic Cozdenmat@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:30:35 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 15:47:14 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/09 11:23:27 by Loic Cozden      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static int	do_operation2(t_env *env, t_operation op)
 {
-	int	i;
-
 	if (op == RRA)
 		return (rotate_stack(&env->st_a, TRUE), 0);
 	if (op == RRB)
@@ -56,8 +54,6 @@ int	do_operation(t_env *env, t_operation op)
 
 void	push_stack(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp;
-
 	if (!stack_b)
 		return ;
 	add_stack(stack_a, (*stack_b)->data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Loic Cozdenmat <Loic Cozdenmat@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:36:36 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 15:52:52 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:27:20 by Loic Cozden      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,10 @@ t_env	*loic_sort(t_env *env, int bitsize)
 	else
 	{
 		while (i < bitsize)
+		{
 			radix(env, i);
-		i++;
+			i++;
+		}
 	}
 	return (env);
 }

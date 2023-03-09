@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtoll.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Loic Cozdenmat <Loic Cozdenmat@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 17:07:04 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/09 12:31:26 by Loic Cozden      ###   ########.fr       */
+/*   Created: 2023/03/09 11:30:37 by Loic Cozden       #+#    #+#             */
+/*   Updated: 2023/03/09 12:39:19 by Loic Cozden      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_strtoll(const char *nptr)
 {
-	int		res;
-	int		sign;
-	size_t	i;
+	long long	res;
+	int			sign;
+	size_t		i;
 
 	res = 0;
 	i = 0;
