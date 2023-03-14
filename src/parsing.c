@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:24:49 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 20:32:28 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:49:42 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ int	verification(int *array, int size)
 		while (j < size)
 		{
 			if (array[i] == array[j])
-				return (0);
+				return (-1);
 			j++;
 		}
 		i++;

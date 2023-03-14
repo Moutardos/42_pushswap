@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Loic Cozdenmat <Loic Cozdenmat@student.    +#+  +:+       +#+        */
+/*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:43:43 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/09 12:31:57 by Loic Cozden      ###   ########.fr       */
+/*   Updated: 2023/03/10 19:26:23 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_is_numeric(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) && (i != 0 && str[i] == '-'))
+		if (ft_isdigit(str[i]) != !(i != 0 && str[i] == '-'))
 			return (0);
 		i++;
 	}

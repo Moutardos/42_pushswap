@@ -6,7 +6,7 @@
 /*   By: lcozdenm <lcozdenm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:44:08 by lcozdenm          #+#    #+#             */
-/*   Updated: 2023/03/06 20:50:05 by lcozdenm         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:55:02 by lcozdenm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_stack	*new_stack(int *data, int size)
 	return (stack);
 }
 
-//pile TODO
 t_stack	*add_stack(t_stack **stack, int data)
 {
 	t_stack	*new;
